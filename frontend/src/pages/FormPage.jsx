@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import InputField from "../components/InputField";
 import Button from "../components/Button";
 import api from "../services/api";
+import { Link } from "react-router-dom";
 
 function FormPage() {
     const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ function FormPage() {
         }
 
         if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        .test(formData.email)) {
+            .test(formData.email)) {
             toast.error("Please enter a valid email.");
             return;
         }
@@ -102,7 +103,16 @@ function FormPage() {
                     <Button
                         title="Submit"
                         type="submit"
+                        className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300"
                     />
+                    <p className="text-center mt-4 text-gray-600"> Already have an account?
+                        <Link
+                            to="/login"
+                            className="text-blue-600 hover:underline px-4 py-2 "
+                        >
+                            Login
+                        </Link>
+                    </p>
                 </form>
             </div>
         </div>

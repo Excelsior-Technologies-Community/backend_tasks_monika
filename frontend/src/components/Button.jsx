@@ -3,7 +3,7 @@ function Button(props) {
     <button
       type={props.type}
       onClick={props.onClick}
-      className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+      className={props.className || "w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 mt-2"}
     >
       {props.title}
     </button>
