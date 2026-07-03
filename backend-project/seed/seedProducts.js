@@ -14,7 +14,7 @@ const products = [
     description: "Dell Inspiron Laptop",
     price: 55000,
     category: "Electronics",
-    image: "https://via.placeholder.com/200",
+    image: "https://m.media-amazon.com/images/I/510uTHyDqGL.jpg",
     stock: 10,
   },
   {
@@ -22,7 +22,7 @@ const products = [
     description: "Samsung Galaxy Smartphone",
     price: 25000,
     category: "Electronics",
-    image: "https://via.placeholder.com/200",
+    image: "https://images.jdmagicbox.com/quickquotes/images_main/-c3qcsbfo.jpg",
     stock: 15,
   },
   {
@@ -30,7 +30,7 @@ const products = [
     description: "Mechanical Keyboard",
     price: 1800,
     category: "Accessories",
-    image: "https://via.placeholder.com/200",
+    image: "https://www.portronics.com/cdn/shop/files/Image1_22bc2b03-ea4b-4bd3-a84c-512cefb508fc.png?v=1718792091",
     stock: 20,
   },
   {
@@ -38,7 +38,7 @@ const products = [
     description: "Wireless Mouse",
     price: 900,
     category: "Accessories",
-    image: "https://via.placeholder.com/200",
+    image: "https://m.media-amazon.com/images/I/61hzuoXwjqL.jpg",
     stock: 25,
   },
   {
@@ -46,7 +46,7 @@ const products = [
     description: "24-inch LED Monitor",
     price: 12000,
     category: "Electronics",
-    image: "https://via.placeholder.com/200",
+    image: "https://images.philips.com/is/image/philipsconsumer/6525ccfcda3d4ca5bd7cb10e00e6923c?wid=700&hei=700&$pnglarge$",
     stock: 8,
   },
   {
@@ -54,7 +54,7 @@ const products = [
     description: "HP Inkjet Printer",
     price: 8000,
     category: "Office",
-    image: "https://via.placeholder.com/200",
+    image: "https://media-ik.croma.com/Croma%20Assets/Computers%20Peripherals/Printers%20and%20Scanners/Images/247639_0_-i1rI8Yrw.png?updatedAt=1760546635931",
     stock: 5,
   },
   {
@@ -62,7 +62,7 @@ const products = [
     description: "HD USB Webcam",
     price: 2200,
     category: "Accessories",
-    image: "https://via.placeholder.com/200",
+    image: "https://dlcdnwebimgs.asus.com/files/media/9165af90-fde3-45b0-b229-88af5da8f8fe/websites/global/products/e3qwltu86agd77ck/img/fhd.png",
     stock: 12,
   },
   {
@@ -70,7 +70,7 @@ const products = [
     description: "1TB External HDD",
     price: 4500,
     category: "Storage",
-    image: "https://via.placeholder.com/200",
+    image: "https://m.media-amazon.com/images/I/51oCAuoDQkL._AC_UF1000,1000_QL80_.jpg",
     stock: 18,
   },
   {
@@ -78,7 +78,7 @@ const products = [
     description: "64GB USB 3.0 Drive",
     price: 700,
     category: "Storage",
-    image: "https://via.placeholder.com/200",
+    image: "https://shop.consistent.in/cdn/shop/files/luminouspng.jpg?v=1765458666",
     stock: 50,
   },
   {
@@ -86,7 +86,7 @@ const products = [
     description: "Portable Bluetooth Speaker",
     price: 3200,
     category: "Electronics",
-    image: "https://via.placeholder.com/200",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr5Px36RVjoDd3-sv7Z3mKhAXTObpJAQQMrS3Gffg9NMeS1emLfsZJCkU&s=10",
     stock: 14,
   },
 ];

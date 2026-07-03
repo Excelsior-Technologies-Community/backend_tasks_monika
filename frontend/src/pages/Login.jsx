@@ -63,9 +63,20 @@ function Login() {
                     username: adminData.username,
                     password: adminData.password,
                 });
+
+
             }
 
+            console.log(response.data);
+            console.log("Role:", response.data.role);
+
             toast.success(response.data.message);
+
+            // if (response.data.role === "user") {
+            //     navigate("/user-dashboard");
+            // } else if (response.data.role === "admin") {
+            //     navigate("/admin-dashboard");
+            // }
 
             if (response.data.role === "user") {
                 navigate("/user-dashboard");

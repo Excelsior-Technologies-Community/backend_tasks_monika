@@ -5,7 +5,6 @@ const User = require("../models/User");
 
 router.post("/login", async (req, res) => {
   try {
-
     console.log(req.body);
     const { role, email, password, username } = req.body;
 
@@ -24,6 +23,8 @@ router.post("/login", async (req, res) => {
 
       return res.status(200).json({
         message: "User login successful",
+        role: "user",
+        user,
       });
     }
 
