@@ -1,6 +1,7 @@
 import FormPage from "./pages/FormPage";
 import Login from "./pages/Login";
 import UserDashboard from "./pages/UserDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<FormPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
 
       <ToastContainer
