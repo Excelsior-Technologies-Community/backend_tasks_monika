@@ -2,8 +2,10 @@ import FormPage from "./pages/FormPage";
 import Login from "./pages/Login";
 import UserDashboard from "./pages/UserDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import AddProductForm from "./components/AddProductForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/add-product" element={<AddProductForm />} />
       </Routes>
 
       <ToastContainer
