@@ -48,6 +48,7 @@ function AddProductForm({ fetchProducts }) {
             });
 
             fetchProducts();
+            
 
         } catch (error) {
 
