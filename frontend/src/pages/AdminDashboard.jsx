@@ -7,6 +7,7 @@ import Button from "../components/Button";
 function AdminDashboard() {
     const [products, setProducts] = useState([]);
     const [showForm, setShowForm] = useState(false);
+    const [editProduct, setEditProduct] = useState(null);
 
     async function fetchProducts() {
         try {
@@ -37,6 +38,12 @@ function AdminDashboard() {
         }
     }
 
+    function handleEdit(product) {
+        console.log(product);
+        setEditProduct(product);
+        setShowForm(true);
+    }
+
     useEffect(() => {
         fetchProducts();
     }, []);
@@ -53,7 +60,10 @@ function AdminDashboard() {
                 <Button
                     title="Add Product"
                     className="bg-white text-gray-700 px-5 py-2 rounded-md hover:bg-gray-100 w-full sm:w-auto text-center"
-                    onClick={() => setShowForm(true)}
+                    onClick={() => {
+                        setEditProduct(null);
+                        setShowForm(true);
+                    }}
                 />
             </div>
 
@@ -68,11 +78,14 @@ function AdminDashboard() {
 
                                 <div className="flex justify-between items-center border-b p-5">
                                     <h2 className="text-2xl font-bold">
-                                        Add Product
+                                        {editProduct ? "Edit Product" : "Add Product"}
                                     </h2>
 
                                     <button
-                                        onClick={() => setShowForm(false)}
+                                        onClick={() => {
+                                            setShowForm(false);
+                                            setEditProduct(null);
+                                        }}
                                         className="text-2xl font-bold text-gray-500 hover:text-red-600"
                                     >
                                         ×
@@ -82,7 +95,12 @@ function AdminDashboard() {
                                 <div className="p-6">
                                     <AddProductForm
                                         fetchProducts={fetchProducts}
-                                        closeForm={() => setShowForm(false)}
+                                        closeForm={() => {
+                                            setShowForm(false);
+                                            setEditProduct(null);
+                                        }}
+                                        editProduct={editProduct}
+                                        setEditProduct={setEditProduct}
                                     />
                                 </div>
 
@@ -126,6 +144,7 @@ function AdminDashboard() {
                                         <Button
                                             title="Edit"
                                             className="bg-yellow-500 hover:bg-yellow-600 text-white px-2.5 py-1 rounded-md text-xs font-semibold transition duration-200"
+                                            onClick={() => handleEdit(product)}
                                         />
 
                                         <Button
@@ -187,6 +206,7 @@ function AdminDashboard() {
                                                 <div className="flex justify-center gap-2">
                                                     <Button
                                                         title="Edit"
+                                                        onClick={() => handleEdit(product)}
                                                         className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm"
                                                     />
 
