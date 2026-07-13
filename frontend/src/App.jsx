@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import UserDashboard from "./pages/UserDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import AddProductForm from "./components/AddProductForm";
+import LocalStorageForm from "./pages/LocalStorageForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/add-product" element={<AddProductForm />} />
+        <Route path="/local-storage" element={<LocalStorageForm />} />
       </Routes>
 
       <ToastContainer
