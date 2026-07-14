@@ -26,7 +26,7 @@ function Navbar() {
                 {/* Desktop menu */}
                 <div className="hidden sm:flex items-center gap-5">
                     <span className="text-sm font-medium bg-white/20 px-3 py-1 rounded-full">
-                        Welcome, User
+                        Welcome, 
                     </span>
                     <Button
                         title="Logout"

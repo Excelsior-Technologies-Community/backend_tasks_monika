@@ -10,6 +10,7 @@ function FormPage() {
         name: "",
         email: "",
         phone: "",
+        password: "",
     });
 
     function handleChange(event) {
@@ -25,27 +26,12 @@ function FormPage() {
         if (
             formData.name === "" &&
             formData.email === "" &&
-            formData.phone === ""
+            formData.phone === "" &&
+            formData.password === ""
         ) {
             toast.error("Please fill all the fields.");
             return;
         }
-
-        // if (!/^[A-Za-z\s]+$/.test(formData.name)) {
-        //     toast.error("Name should contain only letters.");
-        //     return;
-        // }
-
-        // if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        //     .test(formData.email)) {
-        //     toast.error("Please enter a valid email.");
-        //     return;
-        // }
-
-        // if (!/^[0-9]{10}$/.test(formData.phone)) {
-        //     toast.error("Phone number must be exactly 10 digits.");
-        //     return;
-        // }
 
         try {
             const response = await api.post("/api/users", formData);
@@ -57,7 +43,8 @@ function FormPage() {
             setFormData({
                 name: "",
                 email: "",
-                phone: ""
+                phone: "",
+                password: "",
             });
         } catch (error) {
             console.log(error);
@@ -101,6 +88,15 @@ function FormPage() {
                         name="phone"
                         value={formData.phone}
                         placeholder="Enter your phone number"
+                        onChange={handleChange}
+                    />
+
+                    <InputField
+                        label="Password"
+                        type="password"
+                        name="password"
+                        value={formData.password}
+                        placeholder="Enter password"
                         onChange={handleChange}
                     />
 

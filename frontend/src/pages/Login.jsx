@@ -63,8 +63,6 @@ function Login() {
                     username: adminData.username,
                     password: adminData.password,
                 });
-
-
             }
 
             console.log(response.data);
@@ -72,11 +70,15 @@ function Login() {
 
             toast.success(response.data.message);
 
-            // if (response.data.role === "user") {
-            //     navigate("/user-dashboard");
-            // } else if (response.data.role === "admin") {
-            //     navigate("/admin-dashboard");
-            // }
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("role", response.data.role);
+
+            if (response.data.user) {
+                localStorage.setItem(
+                    "user",
+                    JSON.stringify(response.data.user)
+                );
+            }
 
             if (response.data.role === "user") {
                 navigate("/user-dashboard");
@@ -130,7 +132,7 @@ function Login() {
                                 type="password"
                                 name="password"
                                 value={userData.password}
-                                placeholder="Enter mobile number"
+                                placeholder="Enter password"
                                 onChange={handleUserChange}
                             />
                         </>
