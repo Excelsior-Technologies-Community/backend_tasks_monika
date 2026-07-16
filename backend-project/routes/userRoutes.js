@@ -58,4 +58,52 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Get Users with Pagination, Search & Filter
+router.get("/", async (req, res) => {
+  try {
+    // Get query parameters
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 5;
+    const name = req.query.name || "";
+    const email = req.query.email || "";
+
+    // Calculate how many documents to skip
+    const skip = (page - 1) * limit;
+
+    // Create filter object
+    const filter = {};
+
+    if (name) {
+      filter.name = { $regex: name, $options: "i" };
+    }
+
+    if (email) {
+      filter.email = { $regex: email, $options: "i" };
+    }
+
+    // Get total users matching the filter
+    const totalUsers = await User.countDocuments(filter);
+
+    // Fetch users
+    const users = await User.find(filter)
+      .skip(skip)
+      .limit(limit)
+      .select("-password");
+
+    res.status(200).json({
+      success: true,
+      currentPage: page,
+      totalPages: Math.ceil(totalUsers / limit),
+      totalUsers,
+      users,
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;
