@@ -59,6 +59,7 @@ router.post("/", async (req, res) => {
 });
 
 // Get Users with Pagination, Search & Filter
+// Get All Users with Pagination, Search & Filtering
 router.get("/", async (req, res) => {
   try {
     // Get query parameters
@@ -67,31 +68,40 @@ router.get("/", async (req, res) => {
     const name = req.query.name || "";
     const email = req.query.email || "";
 
-    // Calculate how many documents to skip
+    // Calculate skip value
     const skip = (page - 1) * limit;
 
     // Create filter object
     const filter = {};
 
+    // Search by name
     if (name) {
-      filter.name = { $regex: name, $options: "i" };
+      filter.name = {
+        $regex: name,
+        $options: "i",
+      };
     }
 
+    // Filter by email
     if (email) {
-      filter.email = { $regex: email, $options: "i" };
+      filter.email = {
+        $regex: email,
+        $options: "i",
+      };
     }
 
-    // Get total users matching the filter
+    // Count total matching users
     const totalUsers = await User.countDocuments(filter);
 
     // Fetch users
     const users = await User.find(filter)
+      .select("-password")
       .skip(skip)
-      .limit(limit)
-      .select("-password");
+      .limit(limit);
 
     res.status(200).json({
       success: true,
+      message: "Users fetched successfully",
       currentPage: page,
       totalPages: Math.ceil(totalUsers / limit),
       totalUsers,
