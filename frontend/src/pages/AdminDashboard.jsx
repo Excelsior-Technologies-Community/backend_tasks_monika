@@ -121,7 +121,11 @@ function AdminDashboard() {
                                     className="border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 p-4 flex gap-4 items-center"
                                 >
                                     <img
-                                        src={product.image}
+                                        src={
+                                            product.image.startsWith("http")
+                                                ? product.image
+                                                : `http://localhost:3000/${product.image}`
+                                        }
                                         alt={product.name}
                                         className="w-16 h-16 object-cover rounded-lg flex-shrink-0 shadow-sm"
                                     />
@@ -184,7 +188,11 @@ function AdminDashboard() {
                                         >
                                             <td className="border p-3">
                                                 <img
-                                                    src={product.image}
+                                                    src={
+                                                        product.image.startsWith("http")
+                                                            ? product.image
+                                                            : `http://localhost:3000/${product.image}`
+                                                    }
                                                     alt={product.name}
                                                     className="w-16 h-16 object-cover mx-auto rounded"
                                                 />
